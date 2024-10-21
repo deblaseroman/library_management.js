@@ -32,9 +32,6 @@ class section {
     listBooks() {
         return this.books.map(book => `${book.getDetails()} - ${book.isAvailable ? 'Available' : 'Borrowed'}`);
     }
-    calculateTotalBooksAvailable() {
-        return this.getAvailableBooks();
-    }
 }
 const fictionSection = new Section("Fiction");
 const scienceSection = new Section("Science");
@@ -82,5 +79,7 @@ scienceSection.addBook(book4);
       }
     }
  }
- const regularPatron = new Patron("John Doe");
- const vipPatron = new VIPPatron("Roman DeBlase");
+ //Calculate total available books in the section
+ calculateTotalBooksAvailable() {
+    return this.getAvailableBooks();
+}
