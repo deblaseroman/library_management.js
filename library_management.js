@@ -16,7 +16,7 @@ class Book {
     }
 }                   // Create Book class with properties and methods
 
-// section class 
+ 
 class section {
     constructor(name) {
         this.name = name;
@@ -66,3 +66,21 @@ scienceSection.addBook(book4);
     }
  }
  // “Create Patron class to borrow and return books”
+
+ class VIPPatron extends Patron {
+    constructor(name) {
+        super(name);
+        this.priority = true;
+    }
+         borrowBook(book) {
+            if (book.isAvailable) {
+        return super.borrowBook(book);
+    }
+    else {
+        console.log(`${this.name} wanted '${book}', but it is borrowed`);
+        return false;
+      }
+    }
+ }
+ const regularPatron = new Patron("John Doe");
+ const vipPatron = new VIPPatron("Roman DeBlase");
