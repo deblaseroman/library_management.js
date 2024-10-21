@@ -49,4 +49,20 @@ fictionSection.addBook(book1);
 fictionSection.addBook(book2);
 scienceSection.addBook(book3);
 scienceSection.addBook(book4);
-                    // Create Section class to manage books and availability
+ // Create Section class to manage books and availability
+
+ class Patron {
+    constructor(name) {
+        this.name = name;
+        this.borrowedBooks = [];
+    }
+    borrowBook(book) {
+        if (book.isAvailable) {
+            book.isAvailable = false;
+            this.borrowedBooks.push(book);
+            return true;
+        }
+        return false;
+    }
+ }
+ // “Create Patron class to borrow and return books”
